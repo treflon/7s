@@ -1,5 +1,16 @@
-# 7s
-singing web application
+# 7s L.A.C.Y.
+
+(Wallifornia Music Tech Hackathon 2020A)[https://walliforniamusictech.com/]!
+
+Singing web application
+
+# Content
+
+A responsive web interface, plus a java applet (in applet/src).
+
+# Responsive web interface
+
+A very nice one!
 
 # Applet
 
