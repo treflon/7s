@@ -191,11 +191,20 @@ public class WalliforniaApplet extends Applet implements PitchDetectionHandler, 
             //bufferedGraphics.setColor(Color.RED);
             //bufferedGraphics.fillRect(getWidth()/2-3, pitchIndex-3, 7, 7);
             bufferedGraphics.drawImage(starImg, getWidth()/2-16, pitchIndex-16, null);
+            if(previousPitch>0 && ((pitch/previousPitch<0.99) || (pitch/previousPitch>1.01)))
+            	System.out.println(pitch/previousPitch);
             previousPitch = pitch;
 		}
 		else {
-	        pitchIndex = frequencyToBin(previousPitch);
-            bufferedGraphics.drawImage(starImg, getWidth()/2-8, pitchIndex-8, 16, 16, null);
+			if(previousPitch>0) {
+				pitchIndex = frequencyToBin(previousPitch);
+	            bufferedGraphics.drawImage(starImg, getWidth()/2-16, pitchIndex-16, null);
+	            previousPitch = -previousPitch;
+			}
+			else {
+				pitchIndex = frequencyToBin(-previousPitch);
+				bufferedGraphics.drawImage(starImg, getWidth()/2-8, pitchIndex-8, 16, 16, null);
+			}
 		}
         g.drawImage(bufferedImage, 0, 0, null);
         pitch = -1;
